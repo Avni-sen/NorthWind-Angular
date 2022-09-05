@@ -6,18 +6,24 @@ import { ProductComponent } from './components/product/product.component';
 import { NavigateComponent } from './components/navigate/navigate.component';
 import { CategoryComponent } from './components/category/category.component';
 import { HttpClientModule } from '@angular/common/http';
+import { VatAddedPipe } from './pipes/vat-added.pipe';
+import { FormsModule } from '@angular/forms';
+import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     NavigateComponent,
-    CategoryComponent
+    CategoryComponent,
+    VatAddedPipe,
+    FilterPipePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

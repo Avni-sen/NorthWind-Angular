@@ -3,6 +3,14 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
+<div class="mb-3">
+  <label for="filter-text" class="form-label">Ürün Ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filter-text" placeholder="Ara...">
+</div>
+<div *ngIf="filterText.length > 2" class="alert alert-success">
+  {{filterText}} aradınız
+</div>
+
 <!-- Data Tables -->
 <table *ngIf="dataLoaded != false" class="table table-hover  table-responsive">
   <thead class="thead-inverse">
@@ -10,15 +18,17 @@
       <th>Id</th>
       <th>Name</th>
       <th>Price</th>
+      <th>KDV li Fiyat</th>
       <th>Category Id</th>
       <th>Stock</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of products">
+    <tr *ngFor="let product of products | filterPipe:filterText">
       <td scope="row">{{product.productId}}</td>
-      <td>{{product.productName}}</td>
-      <td>{{product.unitPrice}} $</td>
+      <td>{{product.productName |uppercase}}</td>
+      <td>{{product.unitPrice |currency}} </td>
+      <td>{{product.unitPrice |vatAdded:18|currency}}</td>
       <td>{{product.categoryId}}</td>
       <td>{{product.unitsInStock}} Amount</td>
     </tr>

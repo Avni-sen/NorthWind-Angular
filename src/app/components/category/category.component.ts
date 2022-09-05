@@ -13,7 +13,7 @@ export class CategoryComponent implements OnInit {
   Categories: Category[] = [];
 
   //tıkladığımız categoriyi currentCategory olarak set ediyoruz.
-  currentCategory: Category;
+  currentCategory: Category | null;
   constructor(private categoriesService: CategoryService) { }
 
   ngOnInit(): void {
@@ -39,4 +39,15 @@ export class CategoryComponent implements OnInit {
     }
   }
 
+  getAllCategoryClass() {
+    if (this.currentCategory == null) {
+      return "list-group-item active";
+    } else {
+      return "list-group-item";
+    }
+  }
+  setCategoryAllProduct() {
+    this.currentCategory = null;
+    return "list-group-item active";
+  }
 }
