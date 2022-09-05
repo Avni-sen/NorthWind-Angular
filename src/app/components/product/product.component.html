@@ -1,4 +1,10 @@
-<table class="table table-hover table-bordered  table-responsive">
+<!-- Spinners  -->
+<div *ngIf="dataLoaded == false" class="spinner-border text-success" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+<!-- Data Tables -->
+<table *ngIf="dataLoaded != false" class="table table-hover  table-responsive">
   <thead class="thead-inverse">
     <tr>
       <th>Id</th>
@@ -14,7 +20,7 @@
       <td>{{product.productName}}</td>
       <td>{{product.unitPrice}} $</td>
       <td>{{product.categoryId}}</td>
-      <td>{{product.unitsInStock}}</td>
+      <td>{{product.unitsInStock}} Amount</td>
     </tr>
   </tbody>
 </table>
