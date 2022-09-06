@@ -7,13 +7,15 @@ import { NavigateComponent } from './components/navigate/navigate.component';
 import { CategoryComponent } from './components/category/category.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { BoxComponent } from './components/box/box.component';
+import { ProductAddComponent } from './components/product-add/product-add.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { BoxComponent } from './components/box/box.component';
     VatAddedPipe,
     FilterPipePipe,
     CartSummaryComponent,
-    BoxComponent
+    BoxComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { BoxComponent } from './components/box/box.component';
       { positionClass: 'toast-bottom-right' }
     ),
     CommonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
 
   providers: [],
