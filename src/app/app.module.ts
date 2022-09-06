@@ -13,6 +13,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
+import { BoxComponent } from './components/box/box.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
     CategoryComponent,
     VatAddedPipe,
     FilterPipePipe,
-    CartSummaryComponent
+    CartSummaryComponent,
+    BoxComponent
   ],
   imports: [
     BrowserModule,

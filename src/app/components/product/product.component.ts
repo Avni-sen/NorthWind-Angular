@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 import { ToastrService } from 'ngx-toastr';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -17,7 +18,7 @@ export class ProductComponent implements OnInit {
   dataLoaded: boolean = false;
 
 
-  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private toastr: ToastrService) { }
+  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private toastr: ToastrService, private cartService: CartService) { }
   //activated route aktif olan route'u alıyoruz.
 
 
@@ -49,13 +50,12 @@ export class ProductComponent implements OnInit {
   addToCart(product: Product) {
     if (product.unitsInStock > 0) {
       this.box.push(product);
+      this.cartService.addToCart(product);
       this.toastr.success('Added to cart', 'Success!');
       product.unitsInStock--;
-      console.log(this.box);
     } else {
       this.toastr.error('Not in stock', 'Error!');
     }
-
   }
 
 }
