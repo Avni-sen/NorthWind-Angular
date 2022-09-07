@@ -32,10 +32,12 @@ export class ProductAddComponent implements OnInit {
       this.productService.add(productModel).subscribe(data => {
         this.toastr.success(data.message, "Başarılı");
       }, responseError => {
-        if (responseError.error.Errors.length > 0) {
-          for (let i = 0; i < responseError.error.Errors.length; i++) {
+        if (responseError.error.Errors?.length > 0) {
+          for (let i = 0; i < responseError.error.Errors?.length; i++) {
             this.toastr.error(responseError.error.Errors[i].ErrorMessage, "Doğrulama Hatası");
           }
+        } else if (responseError.error) {
+          this.toastr.error(responseError.error.ErrorMessage, "Yetkiniz yok");
         }
       });
     } else {
